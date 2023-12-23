@@ -1,9 +1,10 @@
 import "./App.css";
+import Login from "./login";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="heading">Spotify App Clone</h1>
+      <Login />
     </div>
   );
 }
