@@ -1,9 +1,9 @@
 import "./App.css";
 import { useEffect } from "react";
-import Login from "./login";
+import Login from "./Components/Login/login";
 import { getTokenFromURL } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
-import Player from "./Player";
+import Player from "./Components/Player/Player";
 import { useDataLayerValue } from "./DataLayer";
 
 const spotify = new SpotifyWebApi();
@@ -32,11 +32,7 @@ function App() {
         )
         .catch((e) => console.error(e));
     }
-    console.log("This is the user: ", user);
   }, [dispatch, user]);
-
-  console.log("User: ", user);
-  console.log("Token: ", token);
 
   return <div className="App">{token ? <Player /> : <Login />}</div>;
 }
