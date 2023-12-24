@@ -31,6 +31,16 @@ function App() {
           })
         )
         .catch((e) => console.error(e));
+
+      spotify
+        .getUserPlaylists()
+        .then((playlists) =>
+          dispatch({
+            type: "SET_PLAYLISTS",
+            playlists,
+          })
+        )
+        .catch((e) => console.error(e));
     }
   }, [dispatch, user]);
 

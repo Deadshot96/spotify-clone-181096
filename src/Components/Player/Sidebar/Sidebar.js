@@ -4,8 +4,10 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SidebarOption from "./SidebarOption/SidebarOption";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import VideoLibraryOutlinedIcon from "@mui/icons-material/VideoLibraryOutlined";
+import { useDataLayerValue } from "../../../DataLayer";
 
 const Sidebar = () => {
+  const [{ playlists }, dispatch] = useDataLayerValue();
   return (
     <div className="sidebar">
       <img
@@ -20,6 +22,10 @@ const Sidebar = () => {
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>
       <hr />
+
+      {playlists?.items?.map((playlist) => (
+        <SidebarOption title={playlist.name} />
+      ))}
     </div>
   );
 };
